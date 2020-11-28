@@ -227,7 +227,7 @@ const Admin = () => {
     <div className = "mt-5">
          <div className = "mt-5 section1 text-center">
             
-            <Button onClick={handleOpenModal} variant="warning" className = "mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
+            <Button onClick={handleOpenModal} variant="success" className = "mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
                 {
                     show &&
                     <CreateProductModal

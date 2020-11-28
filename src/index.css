@@ -15,10 +15,19 @@ body {
 }
 */
 .custom-Link{
-  color: #ffffff;
+  color: #292626;
   margin: 5px;
+  font-size: 1.5em;
+  
 }
+
+.none{
+  display: none;
+}
+
 .custom-Link:hover{
-  color: #ffffff;
+  color: #292626;
+  text-decoration: none;
+  font-weight: 650;
 }
 

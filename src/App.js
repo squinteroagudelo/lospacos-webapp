@@ -7,7 +7,7 @@ import ProductView from "./views/ProductView";
 import Admin from "./views/Admin";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 import Swal from 'sweetalert2';
-import LogoApp from './assets/img/logo.jpg';
+import LogoApp from './assets/img/logolospacos.svg';
 
 import LoginModal from './components/LoginModal';
 
@@ -68,7 +68,7 @@ function App() {
         <div className="App">
 
             <Router>
-                <Navbar className="fixed-top" bg="danger" variant="dark" expand="lg">
+                <Navbar className="fixed-top" bg="warning" variant="dark" expand="lg">
                 <Navbar.Brand>
                      <Image height={50}  src={LogoApp}/>
                 </Navbar.Brand>
@@ -76,9 +76,9 @@ function App() {
                     <Navbar.Collapse>
                         <Nav className="mr-auto">
                             <Link className= "custom-Link" to="/">Home</Link>
-                            <Link className= "custom-Link" to="/rol">Roles</Link>
-                            <Link className= "custom-Link" to="/users">Usuarios</Link>
-                            <Link className= "custom-Link" to="/products">Productos</Link>
+                            <Link className= "custom-Link none" to="/rol">Roles</Link>
+                            <Link className= "custom-Link none" to="/users">Usuarios</Link>
+                            <Link className= "custom-Link none" to="/products">Productos</Link>
                             {
                                 localStorage.getItem('token') &&
                                 <Link className= "custom-Link" to="/admin">Administrador</Link>

@@ -51,7 +51,7 @@ const handleOnChange = (e) =>{
 
         <Modal backdrop="static" show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Editar Producto</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>

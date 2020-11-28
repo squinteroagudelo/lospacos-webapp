@@ -5,10 +5,24 @@ import CardProductSell from "../components/CardProductSell";
 
 import carouselImg1 from '../assets/img/1-800x330.png';
 import carouselImg2 from '../assets/img/3-800x330.png';
-import carouselImg3 from '../assets/img/Banner-5.png';
-import carouselImg4 from '../assets/img/Banner-6.jpg';
-import carouselImg5 from '../assets/img/Banner-Corona-800x330.png';
-import carouselImg6 from '../assets/img/rsz_banner-2.jpg';
+import carouselImg3 from '../assets/img/banner-2.jpg';
+import carouselImg4 from '../assets/img/banner-3.jpg';
+import carouselImg5 from '../assets/img/Banner-5.png';
+import carouselImg6 from '../assets/img/Banner-6.jpg';
+import carouselImg7 from '../assets/img/Banner-Corona-800x330.png';
+import carouselImg8 from '../assets/img/rsz_banner-2.jpg';
+
+
+/* import img1 from '../assets/img/1.jpg';
+import img2 from '../assets/img/2.jpg';
+import img3 from '../assets/img/3.jpg';
+import img4 from '../assets/img/4.jpg';
+import img5 from '../assets/img/5.jpg';
+import img6 from '../assets/img/6.jpg';
+import img7 from '../assets/img/7.jpg';
+import img8 from '../assets/img/4.jpg';
+import img9 from '../assets/img/5.jpg';
+import img10 from '../assets/img/6.jpg'; */
 
 import Swal from "sweetalert2";
 
@@ -222,6 +236,22 @@ const HomeView = () => {
                   //  height={550}
                     />           
                 </Carousel.Item>
+                <Carousel.Item className = "mt-4"> 
+                    <img
+                    className="d-block w-100"
+                    src={carouselImg7}
+                    alt="Third slide"
+                  //  height={550}
+                    />
+                </Carousel.Item>
+                <Carousel.Item className = "mt-4"> 
+                    <img
+                    className="d-block w-100"
+                    src={carouselImg8}
+                    alt="Third slide"
+                  //  height={550}
+                    />           
+                </Carousel.Item>
                 </Carousel>
             </div>
             <div>
@@ -231,6 +261,83 @@ const HomeView = () => {
                 }
                 </Container>
             </div>
+
+            {/* <div>
+            <Container>
+            <Carousel>
+                <Carousel.Item width="50px">
+                    <img
+                    className="d-block w-50"
+                    src={img1}
+                    alt="First slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                    className="w-50"
+                    src={img2}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img3}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item  width="50px">
+                    <img
+                    className="w-50"
+                    src={img4}
+                    alt="First slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img5}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img6}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img7}
+                    alt="First slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img8}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img9}
+                    alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item width="50px">
+                    <img
+                    className="w-50"
+                    src={img10}
+                    alt="First slide"
+                    />
+                </Carousel.Item>
+                </Carousel>
+            </Container>
+            </div> */}
         </div>
     );
 }

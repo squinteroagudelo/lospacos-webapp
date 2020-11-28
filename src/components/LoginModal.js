@@ -33,7 +33,8 @@ function LoginModal(props){
             seterrorEmail(null);
             return;
         }
-        const expression =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)-(\.\w{2,3})+$/;
+       // const expression =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)-(\.\w{2,3})+$/;
+       const expression = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-.]{2,3})+$/;
         if(!expression.test(email)){
             seterrorEmail('Email no valido');
         }else{
@@ -50,8 +51,8 @@ function LoginModal(props){
 
         console.log(password.length);
 
-        if(password.length <= 5){
-            setErrorPassword('El password debe ser mayor o igual a 6 letras');
+        if(password.length < 3){
+            setErrorPassword('El password debe ser mayor o igual a 3 Carácteres');
         }else{
             setErrorPassword(null);
             return;
