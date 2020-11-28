@@ -1,16 +1,91 @@
 import React, {useState, useEffect} from "react";
 import ProductService from "../services/ProductService";
-import {Container, Carousel} from "react-bootstrap";
-import CardProductSell from "../components/CardProductSell";
+import CardProduct from "../components/CardProduct";
+import {Button, Container, Navbar, Form} from 'react-bootstrap';
+import CreateProductModal from '../components/CreateProductModal';
+import Swal from 'sweetalert2';
 
-import Swal from "sweetalert2";
 
-const HomeView = () => {
+const Admin = () => {
     const [products, setProducts] = useState(null);
 
     useEffect(() => {
         handleGetProducts();
     }, []);
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () =>{
+        setShow(false)
+    }
+
+    const handleOpenModal = ()=>{
+        setShow(true)
+    }
+
+    const handleSaveProduct = async (product) =>{
+    
+        Swal.fire({
+            allowOutsideClick: false,
+            icon: 'info',
+            text: 'Por favor espere...',
+        })
+
+        Swal.showLoading();
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success ml-1',
+              cancelButton: 'btn btn-danger mr-1'
+            },
+            buttonsStyling: false
+        })
+          
+        swalWithBootstrapButtons.fire({
+            title: '¿Quieres guardar El producto?',
+            text: "¡No podrás revertir esto!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Guardar',
+            cancelButtonText: 'No Guardar',
+            reverseButtons: true
+     
+          }).then((result) => {
+            if (result.isConfirmed) {
+             
+                ProductService.create(product)
+                .then((resp) =>{
+                  
+                    console.log(resp)
+                    swalWithBootstrapButtons.fire({
+                        allowOutsideClick: false,
+                        title:'¡Guardado!',
+                        text:'Guardado exitosamente',
+                        icon:'success',
+                        timer: 2500
+                     }).then(resp =>{
+                        handleGetProducts()
+                     })
+                     handleClose();
+                }, (err) => {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Error...',
+                        text: 'Se presentó un error al guardar el producto',
+                    });
+                    console.log(err)
+                });            
+            } else if (
+         
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                {   title: 'Los Cambios no se an guardado',     
+                    icon: 'info',
+                })
+            }
+          })                         
+    }
 
     const handleGetProducts = async () => {
         try{
@@ -37,19 +112,14 @@ const HomeView = () => {
         }
     }
 
-
-    const hanleCarusel = () =>{
- 
-    }
-
     const handleDeleteProduct = (id) => {
 
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
-              confirmButton: 'btn btn-success',
-              cancelButton: 'btn btn-danger'
+              confirmButton: 'btn btn-success mr-1',
+              cancelButton: 'btn btn-danger ml-1'
             },
-            buttonsStyling: true
+            buttonsStyling: false
         })
           
         swalWithBootstrapButtons.fire({
@@ -58,9 +128,7 @@ const HomeView = () => {
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Si, eliminar',
-            confirmButtonColor: '#28a745',
             cancelButtonText: 'No, cancelar',
-            cancelButtonColor: '#dc3545',
             reverseButtons: false
      
           }).then((result) => {
@@ -74,7 +142,6 @@ const HomeView = () => {
                         title:'¡Eliminado!',
                         text:'Producto eliminado exitosamente',
                         icon:'success',
-                        confirmButtonColor: '#28a745',
                         timer: 2500
                      }).then(resp =>{
                         handleGetProducts()
@@ -85,7 +152,6 @@ const HomeView = () => {
                         icon: 'error',
                         title: 'Error...',
                         text: 'No se a podido eliminar el Producto',
-                        confirmButtonColor: '#28a745'
                     });
                     console.log(err)
                 });
@@ -99,7 +165,6 @@ const HomeView = () => {
                 {   title:'Cancelado',
                     text:'La eliminación del producto ha sido cancelada :)',
                     icon:'error',
-                    confirmButtonColor: '#28a745'
                 })
             }
           })   
@@ -138,7 +203,7 @@ const HomeView = () => {
                             index === 0 ? index : index * columns,
                             index === 0 ? columns : index * columns + columns
                         ).map((product, index) => {
-                            return <CardProductSell
+                            return <CardProduct
                                 key={index}
                                 id={product.id}
                                 name={product.name}
@@ -159,58 +224,27 @@ const HomeView = () => {
 
 
     return (
-        <div>
-            <div>
-                <Carousel className = "mt-5 ">
-                <Carousel.Item className = "mt-4"> 
-                    <img
-                    className="d-block w-100"
-                    src="https://www.alfabetajuega.com/wp-content/uploads/2020/10/Boruto-acaba-de-revelar-la-forma-mas-poderosa-de-Naruto-hasta-la-fecha-1-780x405.jpg"
-                    alt="First slide"
-                    height={550}                       
-                    />
-                    <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item className = "mt-4">
-                    <img
-                    className="d-block w-100"
-                    src="https://cdn2.imagentv.com/sites/www.imagentv.com/files/images/2020/07/odt-048-web-naruto.jpg"
-                    alt="Third slide"
-                    height={550}
-                    />
-                
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item className = "mt-4">
-                    <img
-                    className="d-block w-100"
-                    src="https://as.com/meristation/imagenes/2020/11/25/noticias/1606298659_237590_1606300705_noticia_normal.jpg"
-                    alt="Third slide"
-                    height={550}
-                    />
-                
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                </Carousel>
-            </div>
-            <div>
-                <Container>
+    <div className = "mt-5">
+         <div className = "mt-5 section1 text-center">
+            
+            <Button onClick={handleOpenModal} variant="warning" className = "mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
                 {
-                    handleRenderProducts()
+                    show &&
+                    <CreateProductModal
+                        show={show}
+                        handleClose ={handleClose}
+                        handleSaveProduct = {handleSaveProduct}/>
                 }
-                </Container>
-            </div>
         </div>
+        <Container>
+            {
+                handleRenderProducts()
+            }
+        </Container>
+    </div>
+       
+     
     );
 }
 
-export default HomeView;
+export default Admin;
