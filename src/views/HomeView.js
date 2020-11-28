@@ -3,6 +3,13 @@ import ProductService from "../services/ProductService";
 import {Container, Carousel} from "react-bootstrap";
 import CardProductSell from "../components/CardProductSell";
 
+import carouselImg1 from '../assets/img/1-800x330.png';
+import carouselImg2 from '../assets/img/3-800x330.png';
+import carouselImg3 from '../assets/img/Banner-5.png';
+import carouselImg4 from '../assets/img/Banner-6.jpg';
+import carouselImg5 from '../assets/img/Banner-Corona-800x330.png';
+import carouselImg6 from '../assets/img/rsz_banner-2.jpg';
+
 import Swal from "sweetalert2";
 
 const HomeView = () => {
@@ -156,49 +163,64 @@ const HomeView = () => {
         });
     }
 
-
+         /*
+                https://minimercadolospacos.com/lp/wp-content/uploads/2020/08/Banner-5-600x213.png
+                https://minimercadolospacos.com/lp/wp-content/uploads/2020/08/Banner-5-768x273.png
+                https://minimercadolospacos.com/lp/wp-content/uploads/2020/08/Banner-5-300x106.png
+                https://minimercadolospacos.com/lp/wp-content/uploads/2020/08/Banner-5.png
+                */
 
     return (
         <div>
             <div>
-                <Carousel className = "mt-5 ">
+                <Carousel className = "mt-5">
                 <Carousel.Item className = "mt-4"> 
                     <img
                     className="d-block w-100"
-                    src="https://www.alfabetajuega.com/wp-content/uploads/2020/10/Boruto-acaba-de-revelar-la-forma-mas-poderosa-de-Naruto-hasta-la-fecha-1-780x405.jpg"
+                    src={carouselImg1}
                     alt="First slide"
-                    height={550}                       
+                   // height={550}                       
                     />
-                    <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item className = "mt-4">
+                <Carousel.Item className = "mt-4"> 
                     <img
                     className="d-block w-100"
-                    src="https://cdn2.imagentv.com/sites/www.imagentv.com/files/images/2020/07/odt-048-web-naruto.jpg"
+                    src={carouselImg2}
                     alt="Third slide"
-                    height={550}
+                   // height={550}
                     />
-                
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item className = "mt-4">
+                <Carousel.Item className = "mt-4"> 
                     <img
                     className="d-block w-100"
-                    src="https://as.com/meristation/imagenes/2020/11/25/noticias/1606298659_237590_1606300705_noticia_normal.jpg"
+                    src={carouselImg3}
                     alt="Third slide"
-                    height={550}
+                  //  height={550}
                     />
-                
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item className = "mt-4"> 
+                    <img
+                    className="d-block w-100"
+                    src={carouselImg4}
+                    alt="Third slide"
+                  //  height={550}
+                    />
+                </Carousel.Item>
+                <Carousel.Item className = "mt-4"> 
+                    <img
+                    className="d-block w-100"
+                    src={carouselImg5}
+                    alt="Third slide"
+                  //  height={550}
+                    />
+                </Carousel.Item>
+                <Carousel.Item className = "mt-4"> 
+                    <img
+                    className="d-block w-100"
+                    src={carouselImg6}
+                    alt="Third slide"
+                  //  height={550}
+                    />           
                 </Carousel.Item>
                 </Carousel>
             </div>
