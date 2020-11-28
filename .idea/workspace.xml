@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f991a92c-7c28-42d3-87dc-5477ede7aa61" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CreateProductModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ProductService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ProductService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/HomeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.js" afterDir="false" />
-    </list>
+    <list default="true" id="f991a92c-7c28-42d3-87dc-5477ede7aa61" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +63,7 @@
       <workItem from="1606076147713" duration="1721000" />
       <workItem from="1606190305570" duration="6887000" />
       <workItem from="1606272898782" duration="2189000" />
+      <workItem from="1606586646496" duration="579000" />
     </task>
     <servers />
   </component>
