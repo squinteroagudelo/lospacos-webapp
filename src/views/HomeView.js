@@ -5,7 +5,6 @@ import CardProductSell from "../components/CardProductSell";
 
 import carouselImg1 from '../assets/img/1-800x330.png';
 import carouselImg2 from '../assets/img/3-800x330.png';
-import carouselImg3 from '../assets/img/banner-2.jpg';
 import carouselImg4 from '../assets/img/banner-3.jpg';
 import carouselImg5 from '../assets/img/Banner-5.png';
 import carouselImg6 from '../assets/img/Banner-6.jpg';
@@ -202,14 +201,6 @@ const HomeView = () => {
                     src={carouselImg2}
                     alt="Third slide"
                    // height={550}
-                    />
-                </Carousel.Item>
-                <Carousel.Item className = "mt-4"> 
-                    <img
-                    className="d-block w-100"
-                    src={carouselImg3}
-                    alt="Third slide"
-                  //  height={550}
                     />
                 </Carousel.Item>
                 <Carousel.Item className = "mt-4"> 

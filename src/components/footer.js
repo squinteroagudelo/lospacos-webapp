@@ -44,35 +44,14 @@ const Footer = () => (
                 <address>
                     <h5>DESARROLLADORES</h5>
                     <h6 className="text-muted">Información de contacto</h6>
-                    <p className="d-inline-block">John Esteban Álvarez Piedrahita</p>
-                    <span><FontAwesomeIcon icon={faAt} /> esteban.ea145@gmail.com</span>
-                    <span><FontAwesomeIcon icon={faPhoneAlt} /> 3215801523</span>
-                    <p className="d-inline-block">Samuel Ricardo Quintero Agudelo</p>
-                    <span><FontAwesomeIcon icon={faAt} /> squinteroagudelo18@gmail.com</span>
-                    <span><FontAwesomeIcon icon={faPhoneAlt} /> 3207101960</span>
+                    <p className="d-inline-block mb-0">John Esteban Álvarez Piedrahita</p>
+                    <span className="d-block"><FontAwesomeIcon icon={faAt} /> esteban.ea145@gmail.com</span>
+                    <span className="d-block"><FontAwesomeIcon icon={faPhoneAlt} /> 3215801523</span>
+                    <p className="d-inline-block mb-0 mt-3">Samuel Ricardo Quintero Agudelo</p>
+                    <span className="d-block"><FontAwesomeIcon icon={faAt} /> squinteroagudelo18@gmail.com</span>
+                    <span className="d-block"><FontAwesomeIcon icon={faPhoneAlt} /> 3207101960</span>
                 </address>
             </div>
-
-            {/*
-            <div className="col col-sm-2 mb-3 mb-sm-0 pl-lg-4">
-                <h5>Mapa del sitio</h5>
-                <div className="d-flex flex-sm-column flex-wrap justify-content-center">
-
-                    <p className="mb-0 mr-4">
-                        <input type={Button} className="nav-link bg-transparent border-0 p-0" value="Inicio" onclick="google.script.run.withSuccessHandler(actualizarBody).withUserObject(this).getPage('home')" />
-                    </p>
-                    <p className="mb-0 mr-4">
-                        <input type={Button} className="nav-link bg-transparent border-0 p-0" data-toggle="modal" onclick="showModal('compras')" value="Compras" />
-                    </p>
-                    <p className="mb-0 mr-4">
-                        <input type={Button} className="nav-link bg-transparent border-0 p-0" value="Ventas" onclick="showModal('ventas')" />
-                    </p>
-                    <p className="mb-0 mr-4">
-                        <input type={Button} className="nav-link bg-transparent border-0 p-0" value="Contacto" onclick="google.script.run.withSuccessHandler(actualizarBody).withUserObject(this).getPage('contact')" />
-                    </p>
-                </div>
-            </div>
-            */}
         </div>
     </div>
 );
