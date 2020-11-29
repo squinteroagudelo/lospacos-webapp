@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import LogoApp from './assets/img/logolospacos.svg';
 
 import LoginModal from './components/LoginModal';
+import Footer from "./components/footer";
 
 function App() {
     const [show, setShow] = useState(false);
@@ -114,6 +115,8 @@ function App() {
                     show && <LoginModal show={show} handleClose= {handleClose}/>
                 }
             </Router>
+
+            <Footer />
 
         </div>
     );
