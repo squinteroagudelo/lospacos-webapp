@@ -89,7 +89,7 @@ function App() {
                             <Link className= "custom-Link" to="/">Home</Link>
                             <Link className= "custom-Link none" to="/rol">Roles</Link>
                             <Link className= "custom-Link none" to="/users">Usuarios</Link>
-                            <Link className= "custom-Link none" to="/products">Productos</Link>
+                            <Link className= "custom-Link " to="/products">Productos</Link>
                             {
                                 localStorage.getItem('token') &&
                                 <Link className= "custom-Link" to="/admin">Administrador</Link>
