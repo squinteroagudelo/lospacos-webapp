@@ -22,6 +22,7 @@ function CreateUserModal(props){
     const[errorEmail, seterrorEmail] = useState(null);
     const [errorPassword, setErrorPassword] = useState(null);
     const [errorRol, setErrorRol] = useState(null);
+    const [errorPassword2, setErrorPassword2] = useState(null);
 
 const handleOnChange = (e) =>{
     const name = e.target.name;
@@ -109,6 +110,22 @@ useEffect(() =>{
         setErrorRol('El Codigó es incorecto');
     }
 }, [rol])
+
+
+useEffect(() =>{
+    console.log(rol);
+    if(!password2){
+        setErrorPassword(null);
+        return;
+    }
+
+    if(password == password2){
+        setErrorPassword2(null);
+        return;
+    }else{
+        setErrorPassword2('Las contraseñas no son iguales');
+    }
+}, [password2])
 
 const handleLogin = async () => {
     console.log(email, password);
@@ -248,6 +265,8 @@ const handleSaveUser = async (User) =>{
                             Correo electronico
                         </FormLabel>
                         <FormControl 
+                            type="email" 
+                            placeholder="Enter email"
                             name="email"
                             onChange={handleOnChange}
                             value={email ? email : ""}/>
@@ -258,18 +277,25 @@ const handleSaveUser = async (User) =>{
                             Contraseña
                         </FormLabel>
                         <FormControl
+                            type="password" 
+                            placeholder="Password"
                             name= "password"
                             onChange={handleOnChange}
                             value={password ? password : ""}/>
                             <span className="text-danger">{errorPassword}</span>
                         </FormGroup>
+                        <FormGroup>
                         <FormLabel>
                             Corroborar Contraseña
                         </FormLabel>
                         <FormControl
+                            type="password" 
+                            placeholder="Password"
                             name= "password2"
                             onChange={handleOnChange}
                             value={password2 ? password2 : ""}/>
+                            <span className="text-danger">{errorPassword2}</span>                           
+                        </FormGroup>
                         <FormLabel>
                             Dirrecion Recidencia
                         </FormLabel>
@@ -305,7 +331,7 @@ const handleSaveUser = async (User) =>{
                             id: rolId
                         }
                     })}
-                    disabled={!id || !name || !lastName || !phone || !email || !password || !address || errorEmail || errorPassword}>
+                    disabled={!id || !name || !lastName || !phone || !email || !password || !address || errorEmail || errorPassword || errorPassword2}>
                     Guardar
                 </Button>
             </Modal.Footer>

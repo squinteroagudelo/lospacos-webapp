@@ -224,7 +224,6 @@ const Admin = () => {
 
     const verification = () =>{
             if (localStorage.getItem('token')) {
-
             }else {
                 Swal.fire({
                     allowOutsideClick: false,
@@ -245,28 +244,28 @@ const Admin = () => {
     }
 
     return (
-
         verification(),
-            <div className="mt-5">
-                <div className="mt-5 section1 text-center">
+        <div className="mt-5">
+        <div className="mt-5 section1 text-center">
 
-                    <Button onClick={handleOpenModal} variant="success" className="mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
-                    {
-                        show &&
-                        <CreateProductModal
-                            show={show}
-                            handleClose={handleClose}
-                            handleSaveProduct={handleSaveProduct} />
-                    }
-                </div>
-                <Container>
-                    {
-                        handleRenderProducts()
-                    }
-                </Container>
-            </div>
+            <Button onClick={handleOpenModal} variant="success" className="mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
+            {
+                show &&
+                <CreateProductModal
+                    show={show}
+                    handleClose={handleClose}
+                    handleSaveProduct={handleSaveProduct} />
+            }
+        </div>
+        <Container>
+            {
+                handleRenderProducts()
+            }
+        </Container>
+    </div>
 
-    );   
+           
+    );
 }
 
 export default Admin;
