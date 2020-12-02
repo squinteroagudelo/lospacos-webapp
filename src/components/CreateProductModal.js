@@ -50,7 +50,7 @@ const handleOnChange = (e) =>{
                     <FormGroup>
 
                     <FormLabel>
-                            Id Codigo de Barras
+                            Codigo de Barras
                         </FormLabel>
                         <FormControl 
                             name="id"

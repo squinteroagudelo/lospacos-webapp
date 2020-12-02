@@ -7,15 +7,7 @@ import Swal from 'sweetalert2';
 export const EditProduct = (props) => {
   //  const [show, setShow] = useState(false);
     const { id, name, description, image, price, quatity } = props;
-/*
-    const handleClose = () =>{
-        setShow(false)
-    }
 
-    const handleOpenModal = ()=>{
-        setShow(true)
-    }
-*/
     const handleEditProduct = async (idEdit,product,handleGetProducts) =>{
 
         Swal.fire({
@@ -35,10 +27,10 @@ export const EditProduct = (props) => {
         })
         swalWithBootstrapButtons.fire({
                                 allowOutsideClick: false,
-                                title: '¿Quieres guardar El producto?',
+                                title: '¿Quieres Editar El producto?',
                                 showCancelButton: true,
-                                confirmButtonText: 'Guardar',
-                                cancelButtonText: 'No Guardar',
+                                confirmButtonText: 'Editar',
+                                cancelButtonText: 'No Editar',
                                 icon: 'question',
                                 reverseButtons: true 
                               
@@ -52,7 +44,7 @@ export const EditProduct = (props) => {
                                         console.log(resp);
                                         swalWithBootstrapButtons.fire( {   
                                             allowOutsideClick: false,
-                                            title:'Guardado exitosamente', 
+                                            title:'Editado exitosamente', 
                                             icon: 'success',
                                             timer: 2500
                                         }).then(resp =>{
@@ -67,7 +59,7 @@ export const EditProduct = (props) => {
                                             allowOutsideClick: false,
                                             title: 'Error',
                                             icon: 'error',
-                                            text: 'Se presentó un error al guardar el producto',
+                                            text: 'Se presentó un error al Editar el producto',
                                             timer: 2500
                                         }) 
                                         props.handleClose();

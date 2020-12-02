@@ -8,19 +8,29 @@ import Admin from "./views/Admin";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 import Swal from 'sweetalert2';
 import LogoApp from './assets/img/logolospacos.svg';
-
 import LoginModal from './components/LoginModal';
+import CreateUserModal from './components/CreateUserModal'
 import Footer from "./components/footer";
 
 function App() {
     const [show, setShow] = useState(false);
-
+    const [show2, setShow2] = useState(false);
+    var userGet;
     const handleClose = () =>{
         setShow(false)
     }
 
+    const handleClose2 = () =>{
+        setShow2(false)
+    }
+
+
     const handleOpenModal = () =>{
         setShow(true)
+    }
+
+    const handleOpenModal2 = () =>{
+        setShow2(true)
     }
 
     const handleLogout =() =>{
@@ -58,7 +68,7 @@ function App() {
                 ){
                     swalWithBootstrapButtons.fire(
                         {   
-                            title: 'la sesión no se a cerrado',     
+                            title: 'la sesión no se ha cerrado',     
                             icon: 'info',
                         })
                 }
@@ -70,9 +80,9 @@ function App() {
 
             <Router>
                 <Navbar className="fixed-top" bg="warning" variant="dark" expand="lg">
-                <Navbar.Brand>
-                     <Image height={50}  src={LogoApp}/>
-                </Navbar.Brand>
+                    <Navbar.Brand>
+                        <Image height={50}  src={LogoApp}/>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse>
                         <Nav className="mr-auto">
@@ -93,14 +103,21 @@ function App() {
                                 <Button variant="primary" onClick={handleOpenModal}>Login</Button>
                                 </Nav.Link>
                             }
+
+                        
                             {
+                            !localStorage.getItem('token') &&
+                                <Nav.Link>
+                                <Button variant="success" onClick={handleOpenModal2}>Registro</Button>{' '}
+                                </Nav.Link>
+                            }                  
+                            {
+                               
                                 localStorage.getItem('token') &&
                                 <Nav.Link>
                                 <Button variant="danger" onClick={handleLogout}>Logout</Button>
                                 </Nav.Link>
                             }
-                           
-                       
                        </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -114,11 +131,15 @@ function App() {
                 {
                     show && <LoginModal show={show} handleClose= {handleClose}/>
                 }
+                {
+                    show2 && <CreateUserModal show={show2} handleClose= {handleClose2}/>
+                }
             </Router>
 
             <Footer/>
 
         </div>
+
     );
 }
 
