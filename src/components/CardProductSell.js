@@ -5,6 +5,7 @@ function CardProductSell(props) {
     const[quantityProducts, setQuantityProducts] = useState(1);
     const[totalPurchase, setTotalPurchase] = useState(1);
 
+    const[errorQuantityProducts, setErrorQuantityProducts] = useState(null);
 
     const handleOnChange = (e) =>{
         const name = e.target.name;
@@ -19,8 +20,17 @@ function CardProductSell(props) {
     }
 
     useEffect(() =>{
-        var priceTotalProdut=(props.price * quantityProducts)
-        setTotalPurchase(priceTotalProdut);
+        if(quantityProducts> 0){
+            var priceTotalProdut=(props.price * quantityProducts)
+            setTotalPurchase(priceTotalProdut);
+            setErrorQuantityProducts(null)
+            return;
+        }else{
+            setQuantityProducts(null);
+            setErrorQuantityProducts('La cantidad debe ser mayor  o igual a uno');
+            
+        }
+  
     }, [quantityProducts])
 
     const handleProductSell = (props, quantityProducts) =>{
@@ -47,6 +57,7 @@ function CardProductSell(props) {
                                 name="quantityProducts"
                                 onChange={handleOnChange}
                                 value={quantityProducts ? quantityProducts : ""} />
+                                <span className="text-danger">{errorQuantityProducts}</span> 
                         </FormGroup>
                     </Form>
                 </Card.Body>
