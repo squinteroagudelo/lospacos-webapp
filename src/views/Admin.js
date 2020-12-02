@@ -4,11 +4,11 @@ import CardProduct from "../components/CardProduct";
 import {Button, Container, Navbar, Form} from 'react-bootstrap';
 import CreateProductModal from '../components/CreateProductModal';
 import Swal from 'sweetalert2';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 
-
+import HomeView from "./HomeView";
 const Admin = () => {
     const [products, setProducts] = useState(null);
-
     useEffect(() => {
         handleGetProducts();
     }, []);
@@ -23,8 +23,9 @@ const Admin = () => {
         setShow(true)
     }
 
-    const handleSaveProduct = async (product) =>{
     
+    const handleSaveProduct = async (product) =>{
+        
         Swal.fire({
             allowOutsideClick: false,
             icon: 'info',
@@ -146,7 +147,7 @@ const Admin = () => {
                      }).then(resp =>{
                         handleGetProducts()
                      })
-                    //handleGetProducts()
+
                 }, (err) => {
                     swalWithBootstrapButtons.fire({
                         icon: 'error',
@@ -221,30 +222,51 @@ const Admin = () => {
         });
     }
 
+    const verification = () =>{
+            if (localStorage.getItem('token')) {
 
+            }else {
+                Swal.fire({
+                    allowOutsideClick: false,
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Se a presentado un error Porfabor ingrese con su cuenta',
+                }).then(() => {
+                    window.location.pathname = '/';
+                    <Router>
+                        <Switch>
+                            <Route exact={true} path="/" component={HomeView} />
+                            <Route path="/admin" component={Admin} />
+                        </Switch>
+                    </Router>
+    
+                })
+            }
+    }
 
     return (
-    <div className = "mt-5">
-         <div className = "mt-5 section1 text-center">
-            
-            <Button onClick={handleOpenModal} variant="success" className = "mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
-                {
-                    show &&
-                    <CreateProductModal
-                        show={show}
-                        handleClose ={handleClose}
-                        handleSaveProduct = {handleSaveProduct}/>
-                }
-        </div>
-        <Container>
-            {
-                handleRenderProducts()
-            }
-        </Container>
-    </div>
-       
-     
-    );
+
+        verification(),
+            <div className="mt-5">
+                <div className="mt-5 section1 text-center">
+
+                    <Button onClick={handleOpenModal} variant="success" className="mt-5 ml-4 mr-4 w-75 section1 text-center" size="lg">Crear Producto</Button>
+                    {
+                        show &&
+                        <CreateProductModal
+                            show={show}
+                            handleClose={handleClose}
+                            handleSaveProduct={handleSaveProduct} />
+                    }
+                </div>
+                <Container>
+                    {
+                        handleRenderProducts()
+                    }
+                </Container>
+            </div>
+
+    );   
 }
 
 export default Admin;
